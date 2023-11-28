@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jsonmobilna.MainPage" Title="Student App" >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddPage"/>
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <SearchBar Grid.Row="0" Placeholder="Search student" TextChanged="searchBarTextChanged"/>
+        <ListView x:Name="ListView" RowHeight="75" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Edit" BackgroundColor="LightBlue" CommandParameter="{Binding .}" Invoked="EditInvoke"/>
+                                    <SwipeItem Text="Remove" BackgroundColor="LightPink" CommandParameter="{Binding .}" Invoked="DeleteInvoke"/>
+
+
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Margin="10,0,0,0" Source="usericon.png" HeightRequest="64" WidthRequest="64" VerticalOptions="CenterAndExpand"/>
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Imie}" FontSize="Medium"/>
+                                        <Label Text="{Binding Nazwisko}" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                                        <Label Text="Age"/>
+                                        <Label Text="{Binding Wiek}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </SwipeView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jsonmobilna.Dodaj" Title="Add New Student">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,100,0,0">
+            <Entry Placeholder="Imie" WidthRequest="1000" x:Name="name"/>
+            <Entry Placeholder="Nazwisko" WidthRequest="1000" x:Name="surname"/>
+            <Entry Placeholder="Wiek" WidthRequest="1000" x:Name="age"/>
+            <Button Text="Save" Clicked="saveClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
